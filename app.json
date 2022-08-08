@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "FoodToGo",
+    "slug": "FoodToGo",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
