@@ -6,12 +6,7 @@ import { Searchbar } from 'react-native-paper';
 import { RestaurantInfoCard } from '../components/restInfoCard';
 import styled from "styled-components/native";
 import { Spacer } from '../../../components/spacer/spacerComponent';
-
-const SafeArea = styled(SafeAreaView)`
-  flex: 1;
-  background-color: ${(props) => props.theme.colors.brand.muted};
-  /* margin-top: ${StatusBar.currentHeight}px; */
-`;
+import { SafeArea } from '../../../components/utility/safe-area.component';
 
 const SearchContainer = styled.View`
   padding: ${(props) => props.theme.space[3]};
