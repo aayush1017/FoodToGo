@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 
 import React, { useContext } from 'react';
-import { FlatList, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, useColorScheme, View, } from 'react-native';
+import { FlatList, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, useColorScheme, View, } from 'react-native';
 import { RestaurantInfoCard } from '../components/restInfoCard';
 import styled from "styled-components/native";
 import { Spacer } from '../../../components/spacer/spacerComponent';
@@ -26,8 +26,8 @@ const Loading = styled(ActivityIndicator)`
   margin-left: -25px;
 `
 
-export const RestaurantsScreen = () => {
-  const { isLoading, error, restaurants } = useContext(RestaurantsContext);
+export const RestaurantsScreen = ({ navigation }) => {
+  const { isLoading, restaurants } = useContext(RestaurantsContext);
   // console.log(error);
   return (
     <SafeArea>
@@ -44,9 +44,11 @@ export const RestaurantsScreen = () => {
         data={restaurants}
         renderItem={({ item }) => {
           return (
-            <Spacer position="bottom" size="large">
-              <RestaurantInfoCard restaurant={item} />
-            </Spacer>
+            <TouchableOpacity onPress={() => navigation.navigate("RestaurantDetail", { restaurant: item })}>
+              <Spacer position="bottom" size="large">
+                <RestaurantInfoCard restaurant={item} />
+              </Spacer>
+            </TouchableOpacity>
           );
         }}
         keyExtractor={(item) => item.name}
