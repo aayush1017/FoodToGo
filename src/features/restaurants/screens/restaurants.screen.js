@@ -9,6 +9,7 @@ import { SafeArea } from '../../../components/utility/safe-area.component';
 import { RestaurantsContext } from '../../../services/restaurants/mock/restaurants.context';
 import { ActivityIndicator, Colors } from 'react-native-paper';
 import { Search } from '../components/search.component';
+import { FavouritesContext } from '../../../services/favourites/favourites.context';
 
 const RestaurantList = styled(FlatList).attrs({
   contentContainerStyle: {
@@ -28,6 +29,7 @@ const Loading = styled(ActivityIndicator)`
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
+  const { favourites } = useContext(FavouritesContext)
   // console.log(error);
   return (
     <SafeArea>
