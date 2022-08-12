@@ -10,7 +10,7 @@ import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacerComponent";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 
-export const LoginScreen = () => {
+export const LoginScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const { onLogin, error } = useContext(AuthenticationContext);
@@ -52,6 +52,11 @@ export const LoginScreen = () => {
                     </AuthButton>
                 </Spacer>
             </AccountContainer>
+            <Spacer size="large">
+                <AuthButton mode="contained" onPress={() => navigation.goBack()}>
+                    Back
+                </AuthButton>
+            </Spacer>
         </AccountBackground>
     );
 };
