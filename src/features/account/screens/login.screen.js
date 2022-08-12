@@ -33,7 +33,7 @@ export const LoginScreen = ({ navigation }) => {
                         textContentType="password"
                         secureTextEntry
                         autoCapitalize="none"
-                        secure
+                        // secure
                         onChangeText={(p) => setPassword(p)}
                     />
                 </Spacer>
