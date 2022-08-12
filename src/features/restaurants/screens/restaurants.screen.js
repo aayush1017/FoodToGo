@@ -11,12 +11,7 @@ import { ActivityIndicator, Colors } from 'react-native-paper';
 import { Search } from '../components/search.component';
 import { FavouritesContext } from '../../../services/favourites/favourites.context';
 import { FavouritesBar } from '../../../components/favourites/favourites-bar.component';
-
-const RestaurantList = styled(FlatList).attrs({
-  contentContainerStyle: {
-    padding: 16,
-  },
-})``;
+import { RestaurantList } from '../components/restaurant-list.styles';
 
 const LoadingContainer = styled.View`
   position: absolute; 
