@@ -11,11 +11,12 @@ import {
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacerComponent";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
-import { ActivityIndicator, Colors } from "react-native-paper";
+import { ActivityIndicator, Colors, TextInput } from "react-native-paper";
 
 export const LoginScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [passwordVisible, setPasswordVisible] = useState(true);
     const { onLogin, error, isLoading } = useContext(AuthenticationContext);
     return (
         <AccountBackground>
@@ -35,9 +36,10 @@ export const LoginScreen = ({ navigation }) => {
                         label="Password"
                         value={password}
                         textContentType="password"
-                        secureTextEntry
+                        secureTextEntry={passwordVisible}
                         autoCapitalize="none"
                         onChangeText={(p) => setPassword(p)}
+                        right={<TextInput.Icon name={passwordVisible ? "eye" : "eye-off"} onPress={() => setPasswordVisible(!passwordVisible)} />}
                     />
                 </Spacer>
                 {error && (

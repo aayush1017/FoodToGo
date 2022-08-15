@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { StyleSheet, Text } from 'react-native';
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 import { ThemeProvider } from 'styled-components/native';
 import { theme } from './src/infrastructure/theme';
 import { SafeArea } from './src/components/utility/safe-area.component';
