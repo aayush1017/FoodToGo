@@ -12,6 +12,7 @@ import { Search } from '../components/search.component';
 import { FavouritesContext } from '../../../services/favourites/favourites.context';
 import { FavouritesBar } from '../../../components/favourites/favourites-bar.component';
 import { RestaurantList } from '../components/restaurant-list.styles';
+import { FadeInView } from '../../../components/animations/fade.animation';
 
 const LoadingContainer = styled.View`
   position: absolute; 
@@ -50,9 +51,11 @@ export const RestaurantsScreen = ({ navigation }) => {
         data={restaurants}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity onPress={() => navigation.navigate("RestaurantDetail", { restaurant: item })}>
+            <TouchableOpacity delayPressIn={1000} onPress={() => navigation.navigate("RestaurantDetail", { restaurant: item })}>
               <Spacer position="bottom" size="large">
-                <RestaurantInfoCard restaurant={item} />
+                <FadeInView>
+                  <RestaurantInfoCard restaurant={item} />
+                </FadeInView>
               </Spacer>
             </TouchableOpacity>
           );
